@@ -90,3 +90,24 @@ h6 {
 }
 
 /*<---Normalize(END)--->*/
+
+:root {
+    --text-primary: #303030;
+    --white: #ffffff;
+    --white-hover: #fafafa;
+    --bg-secondary: #f8f8f8;
+    --light-gray: #f0f0f0;
+    --gray: #dddddd;
+    --turquoise: #43807f;
+    --red: #e24b33;
+    --sand: #e1a661;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    max-width: 1300px;
+    margin: 0 auto;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-primary);
+}
