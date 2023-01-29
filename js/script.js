@@ -20,3 +20,32 @@ options.forEach((option) => {
         optionMenu.classList.remove("open");
     });
 });
+// Nav-menu
+const iconNav = document.querySelector(".nav-icon");
+const nav = document.querySelector(".nav");
+
+iconNav.addEventListener("click", () => {
+    document.body.classList.toggle("lock");
+    nav.classList.toggle("active");
+    iconNav.classList.toggle("active");
+});
+
+//Sliders
+const createSlider = (id, slidesPerView, loop = true, breakpoints = {}) => {
+    const swiper = new Swiper(id, {
+        loop,
+        slidesPerView,
+        spaceBetween: 20,
+        navigation: {
+            nextEl: `${id}-btn-next`,
+            prevEl: `${id}-btn-prev`,
+        },
+        pagination: {
+            el: `${id}-pagination`,
+            clickable: true,
+        },
+        breakpoints,
+    });
+};
+
+createSlider(".super-discount-swiper", 1);
