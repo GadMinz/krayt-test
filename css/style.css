@@ -30,6 +30,10 @@ aside {
     display: block;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 html,
 body {
     height: 100%;
@@ -111,6 +115,7 @@ body {
     font-size: 14px;
     color: var(--text-primary);
 }
+
 .btn {
     font-family: "Inter", sans-serif;
     font-weight: 500;
@@ -145,6 +150,56 @@ body {
 .category-title {
     font-family: "Prata", serif;
     font-size: 40px;
+}
+
+@media screen and (max-width: 650px) {
+    .category-title {
+        text-align: center;
+    }
+}
+
+.label {
+    font-weight: 500;
+    font-size: 13px;
+    padding: 4px 8px;
+    color: var(--white);
+    border-radius: 15px;
+}
+
+.label.discount {
+    background-color: var(--red);
+}
+
+.label.hit {
+    padding: 4px 10px;
+    background-color: var(--sand);
+}
+
+.label.sale {
+    padding: 4px 12px;
+    background-color: var(--turquoise);
+}
+
+.label.new {
+    background-color: #495159;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.icon:hover path {
+    fill: #979797;
+}
+
+.icon.like:active path,
+.icon.like.active path {
+    fill: var(--red);
+}
+
+.img-contain {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /*<---Slider(START)--->*/
@@ -604,3 +659,209 @@ body {
 }
 
 /*<---Popular(END)--->*/
+/*<---Sale(START)--->*/
+.sale {
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.sale-categories {
+    margin-bottom: 36px;
+    display: flex;
+    gap: 8px;
+}
+
+.sale-category {
+    padding: 13px 30px;
+    background-color: var(--light-gray);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.sale-category:hover {
+    background-color: var(--gray);
+}
+
+.sale-category:active,
+.sale-category.active {
+    background-color: var(--text-primary);
+    color: var(--white);
+}
+
+.sale-swiper {
+    margin-top: 24px;
+}
+
+.sale-swiper .swiper-pagination {
+    display: none;
+}
+
+.sale-swiper .button-next {
+    top: 0;
+    right: 0;
+}
+
+.sale-swiper .button-prev {
+    top: 0;
+    right: 60px;
+    left: unset;
+}
+
+.sale-card-wrapper {
+    height: 360px;
+    width: 310px;
+    border: 1px solid var(--light-gray);
+    margin: 0 auto;
+    padding: 40px 24px 24px 24px;
+
+    cursor: pointer;
+}
+
+.sale-card-wrapper.active {
+    height: 480px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    transition: height 150ms ease-in-out;
+    top: 0;
+    left: calc(50% - 160px);
+}
+
+/*Fix overflow slider(START)*/
+.sale .swiper {
+    overflow: visible;
+}
+
+.sale-card-img-slider.swiper {
+    overflow: hidden;
+}
+
+.sale-swiper .swiper-slide {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 200ms ease-in-out, visibility 200ms ease-in-out;
+}
+
+.sale-swiper .swiper-slide-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sale-swiper .swiper-slide-active + .swiper-slide {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sale-swiper .swiper-slide-active + .swiper-slide + .swiper-slide {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sale-swiper
+.swiper-slide-active
++ .swiper-slide
++ .swiper-slide
++ .swiper-slide {
+    opacity: 1;
+    visibility: visible;
+}
+
+/*Fix overflow slider(END)*/
+
+.sale-card {
+    position: relative;
+}
+
+.sale-card-img-slider {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.sale-card-img-slider .swiper-pagination {
+    display: block;
+    bottom: 0;
+}
+
+.sale-card-img-slider .button-prev,
+.sale-card-img-slider .button-next {
+    display: none;
+}
+
+.sale-card-price {
+    font-weight: 600;
+    font-size: 18px;
+    position: relative;
+    margin-top: 26px;
+    margin-bottom: 16px;
+}
+
+.sale-card-price-old {
+    font-weight: 400;
+    font-size: 14px;
+    color: #8f8f8f;
+    text-decoration-line: line-through;
+    margin-left: 8px;
+}
+
+.sale-card-desc {
+    line-height: 22px;
+    min-height: 3rem;
+}
+
+.sale-card .discount {
+    position: absolute;
+    right: 0;
+}
+
+.sale-card-tools {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: -20px;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.sale-card-labels {
+    position: absolute;
+    top: -20px;
+    left: 0;
+}
+
+.sale-card-select {
+    margin-top: 20px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.sale-card-wrapper.active .sale-card-select {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 200ms linear;
+}
+
+.sale-card-select .select-btn {
+    justify-content: space-between;
+    padding: 9px 16px;
+    background-color: var(--light-gray);
+    margin-bottom: 8px;
+}
+
+.sale-card-select .select-menu {
+    z-index: unset;
+}
+
+.sale-card-select .select-menu .options {
+    z-index: 5;
+    width: 100%;
+    left: 0;
+    top: 32px;
+}
+
+.sale-card-select .select-menu.open .options {
+    max-height: 15rem;
+    overflow-y: auto;
+}
+
+/*<---Sale(END)--->*/
